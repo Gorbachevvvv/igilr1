@@ -1,0 +1,12 @@
+Number of sentences: 7
+Number of narrative sentences: 2
+Number of interrogative sentences: 2
+Number of imperative sentences: 3
+Average sentence length: 3.29
+Average word length: 3.59
+Number of smileys: 1
+Words starting with lowercase: ['is', 'a', 'sample', 'text', 'contains', 'multiple', 'sentences', 't', 'it', 'interesting', 'it', 'is', 's', 'analyze', 'it', 'we', 'dC', 'cA']
+Punctuations: ['!', '.', "'", '?', ',', '!', "'", '.', '?', '!', ':', ')', ':', ':', ':', ':', ':']
+Longest word: interesting, Position: 13
+Odd words: ['This', 'a', 'text', 'contains', 'sentences', 't', 'interesting', 'it', 'Let', 'analyze', 'Shall', '2023', 'dC', '56', '54']
+Is correct: [False, False, False, False, False]
