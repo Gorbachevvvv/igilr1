@@ -1,0 +1,29 @@
+{% extends "base_generic.html"%}
+
+{% block content %}
+<div class="features">
+    <h1>Промокоды</h1>
+    <p>
+        <h1>Действующие:</h1>
+        {% for p in promocodes %}
+        {% if p.work%}
+            <div class="alert">
+            <h2>{{ p.name }}</h2>
+            <h4>Промокод дает скидку на {{ p.about }} рублей</h4>
+            </div>
+        {% endif %}
+        {% endfor %}
+    <h1>В архиве:</h1>
+        {% for p in promocodes %}
+            {% if p.work == 0 %}
+            <div class="alert">
+            <h2>{{ p.name }}</h2>
+            <h4>Промокод давал скидку на {{ p.about }} рублей</h4>
+            </div>
+            {% endif %}
+        {% endfor %}
+      </p>
+</div>
+{% endblock %}
+
+{% block title %}Промокоды{% endblock %}

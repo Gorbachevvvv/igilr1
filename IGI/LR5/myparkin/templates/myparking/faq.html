@@ -1,0 +1,18 @@
+{% extends "base_generic.html"%}
+
+{% block content %}
+<div class="features">
+    <h1>Ответы и вопросы</h1>
+    <p>
+        {% for f in faq %}
+            <div class="alert">
+            <h2>{{ f.question }}</h2>
+            <h4>{{ f.answer }}</h4>
+            <h6>{{ f.date }}</h6>
+            </div>
+        {% endfor %}
+      </p>
+</div>
+{% endblock %}
+
+{% block title %}Ответы и вопросы{% endblock %}

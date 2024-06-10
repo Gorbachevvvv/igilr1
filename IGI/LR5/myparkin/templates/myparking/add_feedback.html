@@ -1,0 +1,17 @@
+{% extends "base_generic.html"%}
+
+{% block content %}
+<div class="features">
+    <h1>Оставить отзыв</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.rating }}
+        {{ form.text }}
+        <button type="submit">Отправить</button>
+        <span>{{ error }}</span>
+    </form>
+</form>
+</div>
+{% endblock %}
+
+{% block title %}Оставить отзыв{% endblock %}

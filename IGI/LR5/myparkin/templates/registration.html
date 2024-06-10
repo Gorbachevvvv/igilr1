@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title>Registration</title>
+{% endblock %}
+
+{% block content %}
+<h1>Регистрация</h1>
+<div class="features">
+    <h1>Регистрация</h1>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Регистрация</button>
+            {{ error }}
+</form>
+
+</div>
+
+{% endblock %}

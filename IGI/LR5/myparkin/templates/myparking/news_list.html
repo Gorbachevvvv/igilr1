@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News List</title>
+    <style>
+        .news-item {
+            border: 1px solid #ccc;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .news-item img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+{% block content %}
+    <h1>News List</h1>
+    {% for item in items %}
+    <div class="news-item">
+        <h2>{{ item.news_label }}</h2>
+        <p>{{ item.news }}</p>
+        <p>{{ item.news_long }}</p>
+        <img height='400px' src="{{ item.newsimg.url }}" alt="News Image"></img>
+    </div>
+    {% endfor %}
+{% endblock %}
+

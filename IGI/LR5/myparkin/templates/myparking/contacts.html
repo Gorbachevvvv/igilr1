@@ -1,0 +1,20 @@
+{% extends "base_generic.html"%}
+
+{% block content %}
+<div class="features">
+    <h1>Контакты</h1>
+    <p>
+    {% for c in contacts %}
+            <div class="alert">
+            <img width="600" src="{{ c.image.url }}"></img>
+            <h2>{{ c.name }}</h2>
+            <h4>{{ c.email }}</h4>
+            <h6>{{ c.aboutwork }}</h6>
+            <h6>{{ c.phone_number }}</h6>
+            </div>
+        {% endfor %}
+    </p>
+</div>
+{% endblock %}
+
+{% block title %}Контакты{% endblock %}

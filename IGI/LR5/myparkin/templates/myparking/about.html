@@ -1,0 +1,22 @@
+{% extends "base_generic.html"%}
+
+{% block content %}
+<div class="features">
+    <h1>О нас</h1>
+  <body>
+    <h1>О компании</h1>
+    <p>+3754412345678</p>
+    <h2>Реквизиты</h2>
+    <p>У нас лучшая компания</p>
+    {% if info.video %}
+    <h2>Видео</h2>
+    <video width="600" controls>
+        <source src="{{ info.video.url }}" type="video/mp4">
+        Ваш браузер не поддерживает тег видео.
+    </video>
+    {% endif %}
+    </body>
+  </div>
+{% endblock %}
+
+{% block title %}О нас{% endblock %}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+
+  {% block title %}<title>My Parking</title>{% endblock %}
+  <meta charset="utf-8">
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'myparking/css/site_style.css' %}">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+    <div>
+        <!--Main NavBar-->
+        <nav class="navbar navbar-expand-xl navbar-light bg-light">
+           <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'index'%}">Home</a>
+              <a class="navbar-brand" href="{% url 'parking_list'%}">Parking's</a>
+
+               {% if is_seller %}
+                <a class="navbar-brand" href="{% url 'parking_information'%}">Inf. about parking</a>
+               <label class="navbar-brand" >Seller account.</label>
+               {% endif %}
+                {% if user.is_authenticated %}
+                    <label class="navbar-brand" >User: {{ user.get_username }}</label>
+               {% if is_customer %}
+                    <label class="navbar-brand" >Account customer: {{ user.account.amount }}$</label>
+                    <a class="navbar-brand" href="{% url 'add_feedback'%}">Add feedback</a>
+                    <a class="navbar-brand" href="{% url 'my_parking_list'%}">My Parkings</a>
+                    <a class="navbar-brand" href="{% url 'my_cars'%}">My Cars</a>
+                    <a class="navbar-brand" href="{% url 'my_payments'%}">My Payments</a>
+               {% endif %}
+                    <a class="navbar-brand" href="{% url 'logout'%}">Logout</a>
+                               {% else %}
+                    <a class="navbar-brand" href="{% url 'login'%}">Login</a>
+                    <a class="navbar-brand" href="{% url 'register_s'%}">Registration seller</a>
+                    <a class="navbar-brand" href="{% url 'register_c'%}">Registration customer</a>
+                {% endif %}
+           </div>
+        </nav>
+        <nav class="navbar navbar-expand-xl navbar-light bg-light">
+           <div class="container-fluid">
+                    <a class="navbar-brand" href="{% url 'get_ip'%}">Server IP</a>
+                    <a class="navbar-brand" href="{% url 'news_list'%}">News</a>
+                    <a class="navbar-brand" href="{% url 'faq'%}">FAQ</a>
+                    <a class="navbar-brand" href="{% url 'promocodes'%}">PROMO</a>
+                    <a class="navbar-brand" href="{% url 'vacancy'%}">Vacancy</a>
+                    <a class="navbar-brand" href="{% url 'contacts'%}">Contacts</a>
+                    <a class="navbar-brand" href="{% url 'ratings'%}">Ratings</a>
+                    <a class="navbar-brand" href="{% url 'about'%}">About</a>
+                    <a class="navbar-brand" href="{% url 'conf' %}">Confidencial</a>
+                    <a class="navbar-brand" href="{% url 'get_fact_about_cats' %}">Fact about cats</a>
+               </div>
+        </nav>
+  </div>
+
+  <div class="my-main-container">
+          <div class="row">
+            {% block content %}
+            {% endblock %}
+          </div>
+  </div>
+
+</body>
+</html>

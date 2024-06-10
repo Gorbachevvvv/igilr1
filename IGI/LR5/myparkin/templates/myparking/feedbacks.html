@@ -1,0 +1,25 @@
+{% extends "base_generic.html"%}
+
+{% block content %}
+    <div class="features">
+      <h1>
+        Отзывы
+      </h1>
+
+      <p>
+        {% if feedbacks %}
+        {% for feedback in feedbacks %}
+            <div class="alert">
+            <h3>{{ feedback.name }}</h3>
+            <p>{{ feedback.rating }}</p>
+            <p>{{ feedback.text }}</p>
+            <p>{{ feedback.dating }}</p>
+            </div>
+        {% endfor %}
+        {% endif %}
+      </p>
+
+    </div>
+{% endblock %}
+
+{% block title %}Новости{% endblock %}

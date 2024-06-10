@@ -1,0 +1,37 @@
+{% extends "base_generic.html"%}
+
+{% block content%}
+    <h1>Parking Information</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Parking Spot Number</th>
+                <th>Is Busy</th>
+                <th>Price</th>
+                <th>Cars Parked</th>
+                <th>Occupied By</th>
+                <th>Date of Rent</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for spot in parking_spots %}
+            <tr>
+                <td>{{ spot.number }}</td>
+                <td>{% if spot.is_busy %}Yes{% else %}No{% endif %}</td>
+                <td>{{ spot.price }}</td>
+                <td>
+                    {% if spot.cars.all %}
+                        {% for car in spot.cars.all %}
+                            {{ car }}<br>
+                        {% endfor %}
+                    {% else %}
+                        No cars parked
+                    {% endif %}
+                </td>
+                <td>{{ spot.user }}</td>
+                <td>{{ spot.date_of_rent }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

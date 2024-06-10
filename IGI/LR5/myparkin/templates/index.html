@@ -1,0 +1,47 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+<title>Home</title>
+{% endblock %}
+
+{% block content %}
+<h1>Latest new:</h1>
+<div class="news-item">
+        <h2>{{ latest_news.news_label }}</h2>
+        <p>{{ latest_news.news }}</p>
+        <p>{{ latest_news.news_long }}</p>
+        <img height='400px' src="{{ latest_news.newsimg.url }}" alt="News Image"></img>
+    </div>
+<h1>Parking Spots</h1>
+          <h2>User Timezone: {{ user_tz }}</h2>
+            <h2>Current Time: {{ current_time }}</h2>
+<p>Total Parking Spots: {{ parkings_count }}</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Number</th>
+            <th>Price</th>
+            <th>Is Busy</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for parking in parkings %}
+        <tr>
+            <td>{{ parking.number }}</td>
+            <td>{{ parking.price }}</td>
+            <td>{{ parking.is_busy }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+    {% if is_admin %}
+<h2>Parking Spot Prices</h2>
+<div>
+
+    {{ graph | safe }}
+
+</div>
+    {% endif %}
+
+{% endblock %}
